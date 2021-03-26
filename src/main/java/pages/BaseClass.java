@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import com.github.javafaker.Faker;
+
 import org.testng.Assert;
 
 import java.time.Duration;
@@ -17,8 +17,8 @@ public class BaseClass {
 
     public WebDriver driver;
     public WebDriverWait wait;
-    final Faker faker = new Faker(new Locale("en"));
-    public static HashMap<String, String> myMap = new HashMap<String, String>();
+
+
 
     public BaseClass(WebDriver driver) {
         this.driver = driver;
@@ -39,9 +39,10 @@ public class BaseClass {
         waitVisibility(elementBy);
         String actualText = driver.findElement(elementBy).getText().toLowerCase();
         Assert.assertEquals(expectedText, actualText);
-
-
-
+    }
+    public void fillDataInField(By elementBy, String text) {
+        waitVisibility(elementBy);
+        driver.findElement(elementBy).sendKeys(text);
     }
 }
 //TODO для апи тестов https://restful-booker.herokuapp.com/apidoc/index.html#api-Auth-CreateToken
