@@ -6,6 +6,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import com.github.javafaker.Faker;
+import org.testng.Assert;
+
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Locale;
@@ -33,4 +35,13 @@ public class BaseClass {
         waitVisibility(elementBy);
         driver.findElement(elementBy).click();
     }
+    public void checkText(By elementBy, String expectedText) {
+        waitVisibility(elementBy);
+        String actualText = driver.findElement(elementBy).getText().toLowerCase();
+        Assert.assertEquals(expectedText, actualText);
+
+
+
+    }
 }
+//TODO для апи тестов https://restful-booker.herokuapp.com/apidoc/index.html#api-Auth-CreateToken
