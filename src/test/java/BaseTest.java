@@ -3,7 +3,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.*;
-import pages.CreateAccountForm;
+import pages.RegistrationForm;
 import pages.LoginPage;
 import pages.MainPage;
 import pages.Params;
@@ -14,7 +14,7 @@ public class BaseTest {
     MainPage mainPage;
     LoginPage loginPage;
     Params params;
-    CreateAccountForm createAccount;
+    RegistrationForm createAccount;
 
     @BeforeClass
     public void setUp() {
@@ -24,7 +24,7 @@ public class BaseTest {
         mainPage = PageFactory.initElements(driver, MainPage.class);
         loginPage = PageFactory.initElements(driver, LoginPage.class);
         params = PageFactory.initElements(driver, Params.class);
-        createAccount = PageFactory.initElements(driver, CreateAccountForm.class);
+        createAccount = PageFactory.initElements(driver, RegistrationForm.class);
     }
 
     @AfterClass

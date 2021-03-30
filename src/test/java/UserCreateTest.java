@@ -11,7 +11,13 @@ public class UserCreateTest extends BaseTest {
                 .fillEmailField()
                 .clickOnSubmitCreate();
         createAccount
-                .chooseManGender();
+                .chooseManGender()
+                .fillFirstNameField()
+                .fillLastNameField()
+                .fillEmailField()
+                .fillPasswordField()
+                .chooseDateOfBirths();
+        System.out.println(2);
     }
 
 }
