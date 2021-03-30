@@ -62,12 +62,24 @@ public class DataGenerator {
         String str = Integer.toString(randomNumber1);
         myMap.put("randomYear", str);
         return randomNumber1;
-    }//TODO закончить с конвертацией инт в стринг
+    }
     public Integer getRandomIndexByMonth() {
         int a = 1;
         int b = 13;
         b-=a;
         int random_number1 = a + (int) (Math.random() * b); // Генерация 1-го числ
         return random_number1;
+    }
+    public String getRandomCity() {
+        String city = faker.address().city();
+        return city;
+    }
+    public String getRandomPhone() {
+        String phone = faker.phoneNumber().cellPhone();
+        return phone;
+    }
+    public String getRandomAddress() {
+        String address = faker.address().fullAddress();
+        return address;
     }
 }

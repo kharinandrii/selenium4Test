@@ -12,12 +12,19 @@ public class UserCreateTest extends BaseTest {
                 .clickOnSubmitCreate();
         createAccount
                 .chooseManGender()
-                .fillFirstNameField()
-                .fillLastNameField()
+                .fillFirstNameCustomerField()
+                .fillLastNameCustomerField()
                 .fillEmailField()
                 .fillPasswordField()
-                .chooseDateOfBirths();
-        System.out.println(2);
+                .chooseDateOfBirths()
+                .fillFirstNameField()
+                .fillLastNameField()
+                .fillCityField()
+                .fillAddressField()
+                .chooseStateSelect()
+                .fillPostcodeField()
+                .fillMobilePhone()
+                .clickOnRegisterButton();
     }
 
 }

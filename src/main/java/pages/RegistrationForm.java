@@ -13,24 +13,32 @@ public class RegistrationForm extends BaseClass {
     Params params = new Params();
 
     By genderMan = By.xpath("//*[@id='id_gender1']");
-    By firstNameField = By.xpath("//*[@id='customer_firstname']");
-    By lastNameField = By.xpath("//*[@id='customer_lastname']");
+    By firstNameCustomerField = By.xpath("//*[@id='customer_firstname']");
+    By lastNameCustomerField = By.xpath("//*[@id='customer_lastname']");
     By emailField = By.xpath("//*[@id='email']");
     By passwordField = By.xpath("//*[@id='passwd']");
     By dayOfBirth = By.xpath("//*[@id='days']");
     By monthOfBirth = By.xpath("//*[@id='months']");
     By yearsOfBirth = By.xpath("//*[@id='years']");
+    By firstNameField = By.xpath("//*[@id='firstname']");
+    By lastNameField = By.xpath("//*[@id='lastname']");
+    By cityField = By.xpath("//*[@id='city']");
+    By stateSelect = By.xpath("//*[@id='id_state']");
+    By postCodeField = By.xpath("//*[@id='postcode']");
+    By mobilePhoneField = By.xpath("//*[@id='phone_mobile']");
+    By registerButton = By.xpath("//*[text()='Register']");
+    By addressField = By.xpath("//*[@id='address1']");
 
     public RegistrationForm chooseManGender() {
         clickOnElement(genderMan);
         return this;
     }
-    public RegistrationForm fillFirstNameField() {
-        fillDataInField(firstNameField, dataGenerator.userFirstName());
+    public RegistrationForm fillFirstNameCustomerField() {
+        fillDataInField(firstNameCustomerField, dataGenerator.userFirstName());
         return this;
     }
-    public RegistrationForm fillLastNameField() {
-        fillDataInField(lastNameField, dataGenerator.myMap.get("lastName"));
+    public RegistrationForm fillLastNameCustomerField() {
+        fillDataInField(lastNameCustomerField, dataGenerator.myMap.get("lastName"));
         return this;
     }
     public RegistrationForm fillEmailField() {
@@ -44,23 +52,49 @@ public class RegistrationForm extends BaseClass {
     public RegistrationForm chooseDateOfBirths() {
         if(dataGenerator.getRandomValueByYears() / 4 == 0 && dataGenerator.getRandomIndexByMonth() == 2) {
             selectByIndex(dayOfBirth, dataGenerator.getRandomIndexBy29Days());
-            //selectByIndex(monthOfBirth, dataGenerator.getRandomIndexByMonth());
-           // selectByIndex(yearsOfBirth ,dataGenerator.getRandomIndexByYears());
         }if(dataGenerator.getRandomValueByYears() / 4 != 0 && dataGenerator.getRandomIndexByMonth() == 2) {
             selectByIndex(dayOfBirth, dataGenerator.getRandomIndexBy28Days());
-            //selectByIndex(monthOfBirth, dataGenerator.getRandomIndexByMonth());
-            //selectByIndex(yearsOfBirth ,dataGenerator.getRandomIndexByYears());
         }if(dataGenerator.getRandomIndexByMonth() == 1 && dataGenerator.getRandomIndexByMonth() == 3 && dataGenerator.getRandomIndexByMonth() == 5
         && dataGenerator.getRandomIndexByMonth() == 7 && dataGenerator.getRandomIndexByMonth() == 8 && dataGenerator.getRandomIndexByMonth() == 10
         && dataGenerator.getRandomIndexByMonth() == 12) {
             selectByIndex(dayOfBirth, dataGenerator.getRandomIndexBy31Days());
-            //selectByIndex(monthOfBirth, dataGenerator.getRandomIndexByMonth());
-            //selectByIndex(yearsOfBirth ,dataGenerator.getRandomIndexByYears());
         }else{
             selectByIndex(dayOfBirth, dataGenerator.getRandomIndexBy30Days());
         }
         selectByIndex(monthOfBirth, dataGenerator.getRandomIndexByMonth());
         selectByValue(yearsOfBirth ,dataGenerator.myMap.get("randomYear"));
+        return this;
+    }
+    public RegistrationForm fillFirstNameField() {
+        fillDataInField(firstNameField, dataGenerator.myMap.get("firstName"));
+        return this;
+    }
+    public RegistrationForm fillLastNameField() {
+        fillDataInField(lastNameField, dataGenerator.myMap.get("lastName"));
+        return this;
+    }
+    public RegistrationForm fillCityField() {
+        fillDataInField(cityField, dataGenerator.getRandomCity());
+        return this;
+    }
+    public RegistrationForm fillAddressField() {
+        fillDataInField(addressField, dataGenerator.getRandomAddress());
+        return this;
+    }
+    public RegistrationForm chooseStateSelect() {
+        selectByValue(stateSelect, "1");
+        return this;
+    }
+    public RegistrationForm fillPostcodeField() {
+        fillDataInField(postCodeField,"12345");
+        return this;
+    }
+    public RegistrationForm fillMobilePhone() {
+        fillDataInField(mobilePhoneField, dataGenerator.getRandomPhone());
+        return this;
+    }
+    public RegistrationForm clickOnRegisterButton() {
+        clickOnElement(registerButton);
         return this;
     }
 
