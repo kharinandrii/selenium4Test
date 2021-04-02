@@ -98,5 +98,4 @@ public class RegistrationForm extends BaseClass {
         return this;
     }
 
-//TODO продолжить с заполнения формы
 }

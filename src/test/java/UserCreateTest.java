@@ -4,7 +4,6 @@ public class UserCreateTest extends BaseTest {
     @Test
     public void userCreateTest() {
         mainPage
-                .open()
                 .clickOnLogin();
         loginPage
                 .checkAccountFormHeaderText(params.loginFormHeaderValue)
@@ -25,6 +24,24 @@ public class UserCreateTest extends BaseTest {
                 .fillPostcodeField()
                 .fillMobilePhone()
                 .clickOnRegisterButton();
+        mainPage
+                .clickOnLogOut();
+        loginPage
+                .fillEmailLoginForm(dataGenerator.myMap.get("email"))
+                .fillPasswordLoginForm(params.password)
+                .clickSubmitButton();
+
+    }
+
+    @Test
+    public void userAuth() {
+        mainPage
+                .clickOnLogin();
+        loginPage
+                .fillEmailLoginForm(params.login)
+                .fillPasswordLoginForm(params.password)
+                .clickSubmitButton();
+
     }
 
 }

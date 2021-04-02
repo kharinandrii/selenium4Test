@@ -9,6 +9,7 @@ public class MainPage extends BaseClass{
     }
 
     private By loginLink = By.xpath("//a[@class = 'login']");
+    private By logOut = By.xpath("//a[text()='Sign out']");
 
     public MainPage open() {
         driver.get(URL);
@@ -16,6 +17,10 @@ public class MainPage extends BaseClass{
     }
     public MainPage clickOnLogin() {
         clickOnElement(loginLink);
+        return this;
+    }
+    public MainPage clickOnLogOut() {
+        clickOnElement(logOut);
         return this;
     }
 
