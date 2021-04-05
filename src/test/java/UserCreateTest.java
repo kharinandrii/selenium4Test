@@ -24,13 +24,16 @@ public class UserCreateTest extends BaseTest {
                 .fillPostcodeField()
                 .fillMobilePhone()
                 .clickOnRegisterButton();
-        mainPage
-                .clickOnLogOut();
-        loginPage
-                .fillEmailLoginForm(dataGenerator.myMap.get("email"))
-                .fillPasswordLoginForm(params.password)
-                .clickSubmitButton();
-
+        accountPage
+                .getH1Text()
+                .openPersonalInfoPage();
+        personalInfoPage
+                .checkDataInFirstNameField()
+                .checkDataInLastNameField()
+                .checkDataInEmailField()
+                .fillCurrentPassword()
+                .saveForm();
+        accountPage.checkSuccessMessage();
     }
 
     @Test

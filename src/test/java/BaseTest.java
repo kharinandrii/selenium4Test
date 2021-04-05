@@ -13,6 +13,8 @@ public class BaseTest {
     Params params;
     RegistrationForm createAccount;
     DataGenerator dataGenerator;
+    AccountPage accountPage;
+    PersonalInfoPage personalInfoPage;
 
     @BeforeClass
     public void setUp() {
@@ -24,6 +26,8 @@ public class BaseTest {
         params = PageFactory.initElements(driver, Params.class);
         createAccount = PageFactory.initElements(driver, RegistrationForm.class);
         dataGenerator = PageFactory.initElements(driver, DataGenerator.class);
+        accountPage = PageFactory.initElements(driver, AccountPage.class);
+        personalInfoPage = PageFactory.initElements(driver, PersonalInfoPage.class);
         mainPage.open();
     }
     @BeforeTest

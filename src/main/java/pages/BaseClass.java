@@ -61,5 +61,10 @@ public class BaseClass {
         Select dropdown = new Select(driver.findElement(elementBy));
         dropdown.selectByValue(index);
     }
+    public void getElementText(By elementBy, String expectedText) {
+        waitVisibility(elementBy);
+        String actualText = driver.findElement(elementBy).getText().trim();
+        Assert.assertEquals(expectedText, actualText);
+    }
 }
 //TODO для апи тестов https://restful-booker.herokuapp.com/apidoc/index.html#api-Auth-CreateToken
